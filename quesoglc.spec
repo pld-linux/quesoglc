@@ -1,10 +1,5 @@
-# TODO: 
-# - static package?
-#
-# Conditional build:
-#
-Summary:	QuesoGLC is a free (as in free speech) implementation of the OpenGL Character Renderer (GLC)
-Summary(pl.UTF-8):	QuesoGLC to wolna implementacja "OpenGL Character Renderer" (GLC)
+Summary:	QuesoGLC - free implementation of the OpenGL Character Renderer (GLC)
+Summary(pl.UTF-8):	QuesoGLC - wolnodostępna implementacja "OpenGL Character Renderer" (GLC)
 Name:		quesoglc
 Version:	0.6.0
 Release:	1
@@ -26,22 +21,34 @@ provides Unicode support and is designed to be easily ported to any
 platform that supports both FreeType and the OpenGL API.
 
 %description -l pl.UTF-8
-QuesoGLC to wolna implementacja "OpenGL Character Renderer" (GLC).
-QuesoGLC bazuje na bibliotece FreeType. Oferuje wsparcie dla Unikodu i
-zbudowany jest po to aby był łatwo przenoszony na dowolną
-platformę, która wspiera FreeType i API OpenGL.
+QuesoGLC to wolnodostępna implementacja "OpenGL Character Renderer"
+(GLC). Jest oparta na bibliotece FreeType, zapewnia obsługę Unikodu i
+jest zaprojektowana jako przenośna na dowolną platformę obsługującą
+FreeType i API OpenGL.
 
 %package devel
 Summary:	Header files QuesoGLC library
-Summary(pl.UTF-8):Pliki nagłówkowe biblioteki QuesoGLC
+Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki QuesoGLC
 Group:		Development/Libraries
-Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 This package includes the header files for QuesoGLC library.
 
 %description devel -l pl.UTF-8
-Ta paczka zawiera pliki nagłówkowe biblioteki QuesoGLC.
+Ten pakiet zawiera pliki nagłówkowe biblioteki QuesoGLC.
+
+%package static
+Summary:	Static QuesoGLC library
+Summary(pl.UTF-8):	Statyczna biblioteka QuesoGLC
+Group:		Development/Libraries
+Requires:	%{name}-devel = %{version}-%{release}
+
+%description static
+Static QuesoGLC library.
+
+%description static -l pl.UTF-8
+Statyczna biblioteka QuesoGLC.
 
 %prep
 %setup -q
@@ -53,17 +60,14 @@ Ta paczka zawiera pliki nagłówkowe biblioteki QuesoGLC.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT
-
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-rm $RPM_BUILD_ROOT%{_libdir}/libGLC.a
-
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
+
+%post	-p /sbin/ldconfig
+%postun	-p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
@@ -72,5 +76,10 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_includedir}/GL/*.h
+%attr(755,root,root) %{_libdir}/libGLC*.so
 %{_libdir}/libGLC*.la
+%{_includedir}/GL/*.h
+
+%files static
+%defattr(644,root,root,755)
+%{_libdir}/libGLC*.a
