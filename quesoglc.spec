@@ -10,8 +10,8 @@ Source0:	http://dl.sourceforge.net/quesoglc/%{name}-%{version}.tar.bz2
 URL:		http://quesoglc.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
-BuildRequires:  freetype-devel >= 2.0.0
-BuildRequires:	fontconfig-devel
+BuildRequires:	fontconfig-devel >= 1:2.2
+BuildRequires:	freetype-devel >= 2.1.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,6 +31,9 @@ Summary:	Header files QuesoGLC library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki QuesoGLC
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
+Requires:	OpenGL-GLU-devel
+Requires:	fontconfig-devel >= 1:2.2
+Requires:	freetype-devel >= 2.1.0
 
 %description devel
 This package includes the header files for QuesoGLC library.
