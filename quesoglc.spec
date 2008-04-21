@@ -12,8 +12,8 @@ BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
 BuildRequires:	fontconfig-devel >= 1:2.2
 BuildRequires:	freetype-devel >= 2.1.0
-BuildRequires:	xorg-proto-xproto-devel
 BuildRequires:	xorg-lib-libX11-devel
+BuildRequires:	xorg-proto-xproto-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
