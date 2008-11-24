@@ -85,6 +85,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libGLC*.so
 %{_libdir}/libGLC*.la
 %{_includedir}/GL/*.h
+%{_pkgconfigdir}/quesoglc.pc
 
 %files static
 %defattr(644,root,root,755)
