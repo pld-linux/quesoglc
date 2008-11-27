@@ -78,15 +78,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README THANKS
-%attr(755,root,root) %{_libdir}/libGLC*.so.*.*
+%attr(755,root,root) %{_libdir}/libGLC.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libGLC.so.0
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libGLC*.so
-%{_libdir}/libGLC*.la
+%attr(755,root,root) %{_libdir}/libGLC.so
+%{_libdir}/libGLC.la
 %{_includedir}/GL/*.h
 %{_pkgconfigdir}/quesoglc.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libGLC*.a
+%{_libdir}/libGLC.a
