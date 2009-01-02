@@ -2,7 +2,7 @@ Summary:	QuesoGLC - free implementation of the OpenGL Character Renderer (GLC)
 Summary(pl.UTF-8):	QuesoGLC - wolnodostępna implementacja "OpenGL Character Renderer" (GLC)
 Name:		quesoglc
 Version:	0.7.1
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/quesoglc/%{name}-%{version}.tar.bz2
@@ -59,7 +59,8 @@ Statyczna biblioteka QuesoGLC.
 %setup -q
 
 %build
-%configure 
+%configure
+
 %{__make}
 
 %install
@@ -78,6 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README THANKS
 %attr(755,root,root) %{_libdir}/libGLC*.so.*.*
+%attr(755,root,root) %ghost %{_libdir}/libGLC*.so.?
 
 %files devel
 %defattr(644,root,root,755)
