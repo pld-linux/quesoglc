@@ -1,12 +1,12 @@
 Summary:	QuesoGLC - free implementation of the OpenGL Character Renderer (GLC)
 Summary(pl.UTF-8):	QuesoGLC - wolnodostępna implementacja "OpenGL Character Renderer" (GLC)
 Name:		quesoglc
-Version:	0.7.1
-Release:	2
+Version:	0.7.2
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://dl.sourceforge.net/quesoglc/%{name}-%{version}.tar.bz2
-# Source0-md5:	53e9c5c304369803aa99000916728119
+# Source0-md5:	1c8d394d4f41fa0c5b08eb7ead73c4ef
 URL:		http://quesoglc.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
@@ -60,7 +60,6 @@ Statyczna biblioteka QuesoGLC.
 
 %build
 %configure
-
 %{__make}
 
 %install
@@ -78,15 +77,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README THANKS
-%attr(755,root,root) %{_libdir}/libGLC*.so.*.*
-%attr(755,root,root) %ghost %{_libdir}/libGLC*.so.?
+%attr(755,root,root) %{_libdir}/libGLC.so.*.*.*
+%attr(755,root,root) %ghost %{_libdir}/libGLC.so.?
 
 %files devel
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/libGLC*.so
-%{_libdir}/libGLC*.la
+%attr(755,root,root) %{_libdir}/libGLC.so
+%{_libdir}/libGLC.la
 %{_includedir}/GL/*.h
+%{_pkgconfigdir}/quesoglc.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libGLC*.a
+%{_libdir}/libGLC.a
