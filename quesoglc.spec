@@ -5,9 +5,9 @@ Version:	0.7.2
 Release:	5
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://dl.sourceforge.net/quesoglc/%{name}-%{version}.tar.bz2
+Source0:	https://downloads.sourceforge.net/quesoglc/%{name}-%{version}.tar.bz2
 # Source0-md5:	1c8d394d4f41fa0c5b08eb7ead73c4ef
-URL:		http://quesoglc.sourceforge.net/
+URL:		https://quesoglc.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
 BuildRequires:	fontconfig-devel >= 1:2.2
