@@ -7,6 +7,7 @@ License:	LGPL v2.1+
 Group:		Libraries
 Source0:	https://downloads.sourceforge.net/quesoglc/%{name}-%{version}.tar.bz2
 # Source0-md5:	1c8d394d4f41fa0c5b08eb7ead73c4ef
+Patch0:		%{name}-types.patch
 URL:		https://quesoglc.sourceforge.net/
 BuildRequires:	OpenGL-GLU-devel
 BuildRequires:	OpenGL-glut-devel
@@ -57,6 +58,7 @@ Statyczna biblioteka QuesoGLC.
 
 %prep
 %setup -q
+%patch -P0 -p1
 
 %build
 %configure
